@@ -8,6 +8,8 @@ import DetailProduct from "../pages/product/detail-Product"
 
 
 const RouterAplication = () => {
+    const token = localStorage.getItem('token')
+    const role = localStorage.getItem('role')
 
     return (
         <div>
@@ -17,8 +19,8 @@ const RouterAplication = () => {
                 <Route path="/" element={<Product />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/create-product" element={<CreateProduct />} />
-                <Route path="/detail/:id" element={<DetailProduct />} />
+                <Route path="/create-product" element={token && role === 'admin' ? <CreateProduct /> : <Login />} />
+                <Route path="/detail/:id" element={token ? <DetailProduct /> : <Login />} />
             </Routes>
         </div>
     )
