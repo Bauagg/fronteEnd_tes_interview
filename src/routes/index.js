@@ -19,8 +19,8 @@ const RouterAplication = () => {
                 <Route path="/" element={<Product />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/create-product" element={token && role === 'admin' ? <CreateProduct /> : <Login />} />
-                <Route path="/detail/:id" element={token ? <DetailProduct /> : <Login />} />
+                <Route path="/create-product" element={token && token !== null && role === 'admin' ? <CreateProduct /> : <Login />} />
+                <Route path="/detail/:id" element={token && token !== null ? <DetailProduct /> : <Login />} />
             </Routes>
         </div>
     )

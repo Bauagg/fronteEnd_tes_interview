@@ -13,6 +13,8 @@ const NavbarComponen = () => {
         Navigate('/login')
     }
 
+    console.log(token)
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-primary">
